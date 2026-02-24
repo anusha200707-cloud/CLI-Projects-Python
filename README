@@ -1,0 +1,34 @@
+
+students = []
+
+while True:
+    print("\n1.Add  2.View  3.Search  4.Avg  5.Topper  6.Exit")
+    ch = input("Choice: ")
+
+    if ch == "1":
+        n = input("Name: ")
+        r = input("Roll: ")
+        m = float(input("Marks: "))
+        students.append({"name": n, "roll": r, "marks": m})
+
+    elif ch == "2":
+        for s in students:
+            print(s)
+
+    elif ch == "3":
+        r = input("Roll to search: ")
+        for s in students:
+            if s["roll"] == r:
+                print(s)
+
+    elif ch == "4":
+        if students:
+            print("Average:", sum(s["marks"] for s in students)/len(students))
+
+    elif ch == "5":
+        if students:
+            top = max(students, key=lambda x: x["marks"])
+            print("Topper:", top)
+
+    elif ch == "6":
+        break
